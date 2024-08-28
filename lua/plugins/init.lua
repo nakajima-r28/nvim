@@ -13,6 +13,9 @@ return {
     end,
   },
 
+  { "vim-denops/denops.vim", lazy = false },
+  { "skanehira/denops-translate.vim", lazy = false },
+
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

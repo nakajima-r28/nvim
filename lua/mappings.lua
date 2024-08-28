@@ -27,7 +27,6 @@ map("i", "<C-q>", '<C-v><Tab>', { noremap = true })
 map("t", "<ESC>", "<C-\\><C-n>", { noremap = true, silent = true }) --nvimコマンドが使えるようになる
 
 -- normal mode
--- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<C-n>", "<CMD>bnext<CR>", { noremap = true, silent = true })  -- バッファー間を行き来する
 map("n", "<C-p>", "<CMD>bprev<CR>", { noremap = true, silent = true })  -- バッファー間を行き来する
 map("n", "g<C-n>", "<CMD>tabnext<CR>", { noremap = true, silent = true }) -- タブ間を行き来する
@@ -37,7 +36,9 @@ map("n", "<C-f>p", "<CMD>cprevious<CR>", { noremap = true, silent = true }) -- Q
 map("n", "<C-f>f", "<CMD>cfirst<CR>", { noremap = true, silent = true }) -- QuickFixリストの先頭にいく
 map("n", "<C-f>l", "<CMD>clast<CR>", { noremap = true, silent = true }) -- QuickFixリストの最後にいく
 map("n", "<C-f>q", "<CMD>cclose<CR>", { noremap = true, silent = true }) -- QuickFixを閉じる
-map("n", "<C-f>a", "<CMD>OpenAllQF<CR>", { desc = "Quickfixリストにある全てのエントリを開く", noremap = true, silent = true }) -- Quickfixリストにある全てのエントリを開く
+
+-- リマッピング
+map("n", "*", "*Nzz", { noremap = true, silent = true })
 
 -- insert mode
 map("i", "jk", "<ESC>") -- @TODO: 多分これも外したほうがいい
@@ -45,3 +46,4 @@ map("i", "jk", "<ESC>") -- @TODO: 多分これも外したほうがいい
 -- visual mode
 map("v", "//", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { noremap = true }) -- visualモードで洗濯中の箇所を検索する
 map("v", '<Leader>y', '"+y', { noremap = true }) -- クリップボードにコピー
+map("v", '<Leader>t', ':Translate<CR>', { noremap = true }) -- クリップボードにコピー
