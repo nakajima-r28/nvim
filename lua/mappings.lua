@@ -24,7 +24,7 @@ map("i", "<C-k>", "<C-o>d$", { noremap = true })
 map("i", "<C-q>", '<C-v><Tab>', { noremap = true })
 
 -- terminal
-map("t", "<ESC>", "<C-\\><C-n>", { noremap = true, silent = true }) --nvimコマンドが使えるようになる
+map("t", "<ESC>", "<C-\\><C-n><C-w><C-w>", { noremap = true, silent = true }) --ECSで違うバッファーに移動
 
 -- normal mode
 map("n", "<C-n>", "<CMD>bnext<CR>", { noremap = true, silent = true })  -- バッファー間を行き来する
@@ -37,11 +37,17 @@ map("n", "<C-f>f", "<CMD>cfirst<CR>", { noremap = true, silent = true }) -- Quic
 map("n", "<C-f>l", "<CMD>clast<CR>", { noremap = true, silent = true }) -- QuickFixリストの最後にいく
 map("n", "<C-f>q", "<CMD>cclose<CR>", { noremap = true, silent = true }) -- QuickFixを閉じる
 
+map("n", "<C-j><C-k><C-j><C-k>", ":q!<CR>", { noremap = true, silent = true }) --  windowを閉じる
 -- リマッピング
 map("n", "*", "*Nzz", { noremap = true, silent = true })
+map("n", "n", "nzz", { noremap = true, silent = true })
+map("n", "N", "Nzz", { noremap = true, silent = true })
+map("n", "<C-o>", "<C-o>zz", { noremap = true, silent = true })
+map("n", "<C-e>", "<C-e>j", { noremap = true, silent = true })
+map("n", "<C-y>", "<C-y>k", { noremap = true, silent = true })
 
 -- insert mode
-map("i", "jk", "<ESC>") -- @TODO: 多分これも外したほうがいい
+-- map("i", "jk", "<ESC>") -- @TODO: 多分これも外したほうがいい
 
 -- visual mode
 map("v", "//", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { noremap = true }) -- visualモードで洗濯中の箇所を検索する
