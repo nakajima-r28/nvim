@@ -15,6 +15,7 @@ return {
 
   { "vim-denops/denops.vim", lazy = false },
   { "skanehira/denops-translate.vim", lazy = false },
+  { "NKJM-R/smooth-scroll.vim", lazy = false },
 
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
