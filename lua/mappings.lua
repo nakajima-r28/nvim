@@ -1,6 +1,6 @@
 require "nvchad.mappings"
 
--- add yours here
+  -- add yours here
 
 local map = vim.keymap.set
 
@@ -24,7 +24,8 @@ map("i", "<C-k>", "<C-o>d$", { noremap = true })
 map("i", "<C-q>", '<C-v><Tab>', { noremap = true })
 
 -- terminal
-map("t", "<ESC>", "<C-\\><C-n><C-w><C-w>", { noremap = true, silent = true }) --ECSで違うバッファーに移動
+map("t", "<ESC>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true }) --ECSで違うバッファーに移動
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "term://*", command = "startinsert" }) -- ターミナルバッファに移動したときに自動的に挿入モードに入る
 
 -- normal mode
 map("n", "<C-n>", "<CMD>bnext<CR>", { noremap = true, silent = true })  -- バッファー間を行き来する
@@ -45,6 +46,7 @@ map("n", "N", "Nzz", { noremap = true, silent = true })
 map("n", "<C-o>", "<C-o>zz", { noremap = true, silent = true })
 map("n", "<C-e>", "<C-e>j", { noremap = true, silent = true })
 map("n", "<C-y>", "<C-y>k", { noremap = true, silent = true })
+map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
 
 -- insert mode
 -- map("i", "jk", "<ESC>") -- @TODO: 多分これも外したほうがいい
@@ -53,3 +55,4 @@ map("n", "<C-y>", "<C-y>k", { noremap = true, silent = true })
 map("v", "//", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { noremap = true }) -- visualモードで洗濯中の箇所を検索する
 map("v", '<Leader>y', '"+y', { noremap = true }) -- クリップボードにコピー
 map("v", '<Leader>t', ':Translate<CR>', { noremap = true }) -- クリップボードにコピー
+map("v", '.', ':<Up><CR>', { noremap = true }) -- クリップボードにコピー
